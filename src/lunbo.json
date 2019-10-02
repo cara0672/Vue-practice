@@ -1,0 +1,13 @@
+{
+  "status": 0,
+  "images":[{
+    "id": 0,
+    "url": "./images/elem1.png"
+  },{
+    "id": 1,
+    "url": "./images/elem2.png"
+  },{
+    "id": 2,
+    "url": "./images/elem3.png"
+  }]
+}
