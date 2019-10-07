@@ -11,15 +11,23 @@ Vue.use(VueResource);
 Vue.http.options.root = 'http://www.liulongbin.top:3005';
 
 import moment from 'moment';
-import {Header, Button, Swipe, SwipeItem} from 'mint-ui'
 
+import Comment from './components/subComponents/comment.vue'
+Vue.component('Comment', Comment);
+
+import {Header, Button, Swipe, SwipeItem, Lazyload} from 'mint-ui'
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Header.name, Header);
 Vue.component(Button.name, Button);
+Vue.use(Lazyload);
 
-Vue.filter('timeFormat', function (value, format="YYYY-MM-DD HH:MM:SS") {
+import VuePreview from 'vue-preview'
+
+Vue.use(VuePreview);
+
+Vue.filter('timeFormat', function (value, format="YYYY-MM-DD HH:MM:ss") {
     return moment(value).format(format);
 });
 

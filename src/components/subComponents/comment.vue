@@ -3,8 +3,8 @@
     <h4>发表评论</h4>
     <hr />
     <div class="commitComment">
-      <textarea maxlength="120" placeholder="请输入评论内容(最多120字)"></textarea>
-      <mt-button type="primary" size="large">发表评论</mt-button>
+      <textarea maxlength="120" placeholder="请输入评论内容(最多120字)" v-model="commentContent"></textarea>
+      <mt-button type="primary" size="large" @click="sendComment(id)">发表评论</mt-button>
     </div>
 
     <ul>
@@ -27,7 +27,8 @@
         data:function(){
             return {
                 commentListPage: [],
-                pageindex: 1
+                pageindex: 1,
+                commentContent: ''
             }
         },
         created(){
@@ -47,6 +48,20 @@
             CommentMore(){
                 this.pageindex++;
                 this.getCommentPage();
+            },
+            sendComment(id){
+                this.$http.post('api/postcomment/' + id, {content: this.commentContent}).then(function (data) {
+                    if (data.body['status'] === 0) {
+                        this.commentListPage.unshift({
+                            'user_name': '匿名用户',
+                            'add_time': Date.now(),
+                            'content': this.commentContent
+                        });
+                        Toast('评论成功');
+                    }else{
+                        Toast('评论失败');
+                    }
+                })
             }
         },
         props:["id"]
