@@ -5,13 +5,14 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --port 37680 --hot --contentBase src"
+    "dev": "webpack-dev-server --open --port 37680 --hot --contentBase src "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.4.1",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

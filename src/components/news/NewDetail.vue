@@ -16,7 +16,6 @@
 <script>
   import {Toast} from 'mint-ui'
   import Comment from '../subComponents/comment.vue'
-
     export default {
         name: "NewDetail",
         data:function(){
